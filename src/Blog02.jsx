@@ -6,8 +6,26 @@ class Blog02 extends React.Component {
     super(props);
     this.state = {
       isPublished: false,
-      order: 1
+      count: 0
     }
+  }
+
+  componentDidMount() {
+    // ボタンがクリックされたらいいねをカウントアップする
+    document.getElementById('counter').addEventListener('click', this.countUp)
+    // 別の関数の記述方法
+    // document.getElementById('counter').addEventListener('click',()=> this.countUp())
+    // イベントリスナーの中で this.countUp() と記述するとrenderが何度も呼び出されるため上記で記述する。
+  }
+
+  componentDidUpdate() {
+    if(this.state.count >= 10) {
+      this.setState({count: 0})
+    }
+  }
+
+  componentWillUnmount() {
+    document.getElementById('counter').removeEventListener('click', this.countUp)
   }
 
   // 公開状態を反転させる関数
@@ -17,6 +35,10 @@ class Blog02 extends React.Component {
     })
   };
 
+  countUp = () => {
+    this.setState({count: this.state.count + 1})
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -24,6 +46,7 @@ class Blog02 extends React.Component {
           title={"Reactの使い方"}
           isPublished={this.state.isPublished}
           toggle={() => this.togglePublished()}
+          count={this.state.count}
         />
       </React.Fragment>
     )
