@@ -1,7 +1,9 @@
-import React from 'react';
-import LikeButton from './LikeButton';
+import React, {useState} from 'react';
+// import LikeButton from './LikeButton';
 
 const Article02 = (props) => {
+  const [isPublished, togglePublished] = useState(false);
+
   return (
     <div>
       <h2>{props.title}</h2>
@@ -9,10 +11,11 @@ const Article02 = (props) => {
       <input
         id="check"
         type="checkbox"
-        checked={props.isPublished}
-        onClick={() => props.toggle()}>
+        checked={isPublished}
+        onClick={() => togglePublished(!isPublished)}
+        >
       </input>
-      <LikeButton count={props.count} />
+      {/* <LikeButton count={props.count} /> */}
     </div>
   )
 };

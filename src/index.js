@@ -8,7 +8,7 @@ import Blog02 from './Blog02'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Blog />
+    {/* <Blog /> */}
     <Blog02 />
   </React.StrictMode>,
   document.getElementById('root')

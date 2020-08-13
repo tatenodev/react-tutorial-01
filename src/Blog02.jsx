@@ -8,61 +8,43 @@ import Hoge from './components/Hoge'
 // import * as AnotherName from './Article'
 // import {Foo as MyFoo} from './FooBar
 
-class Blog02 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPublished: false,
-      count: 0
-    }
-  }
+const Blog02 = () => {
 
-  componentDidMount() {
-    // ボタンがクリックされたらいいねをカウントアップする
-    document.getElementById('counter').addEventListener('click', this.countUp)
-    // 別の関数の記述方法
-    // document.getElementById('counter').addEventListener('click',()=> this.countUp())
-    // イベントリスナーの中で this.countUp() と記述するとrenderが何度も呼び出されるため上記で記述する。
-  }
+  // componentDidMount() {
+  //   // ボタンがクリックされたらいいねをカウントアップする
+  //   document.getElementById('counter').addEventListener('click', this.countUp)
+  //   // 別の関数の記述方法
+  //   // document.getElementById('counter').addEventListener('click',()=> this.countUp())
+  //   // イベントリスナーの中で this.countUp() と記述するとrenderが何度も呼び出されるため上記で記述する。
+  // }
 
-  componentDidUpdate() {
-    if(this.state.count >= 10) {
-      this.setState({count: 0})
-    }
-  }
+  // componentDidUpdate() {
+  //   if(this.state.count >= 10) {
+  //     this.setState({count: 0})
+  //   }
+  // }
 
-  componentWillUnmount() {
-    document.getElementById('counter').removeEventListener('click', this.countUp)
-  }
+  // componentWillUnmount() {
+  //   document.getElementById('counter').removeEventListener('click', this.countUp)
+  // }
 
-  // 公開状態を反転させる関数
-  togglePublished = () => {
-    this.setState({
-      isPublished: !this.state.isPublished
-    })
-  };
+  // countUp = () => {
+  //   this.setState({count: this.state.count + 1})
+  // }
 
-  countUp = () => {
-    this.setState({count: this.state.count + 1})
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <Article02
-          title={"Reactの使い方"}
-          isPublished={this.state.isPublished}
-          toggle={() => this.togglePublished()}
-          count={this.state.count}
-        />
-        {/* <Foo /> */}
-        {/* <Bar /> */}
-        <FooBar.Foo />
-        <FooBar.Bar />
-        <Hoge />
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <Article02
+        title={"Reactの使い方"}
+        // count={this.state.count}
+      />
+      {/* <Foo /> */}
+      {/* <Bar /> */}
+      <FooBar.Foo />
+      <FooBar.Bar />
+      <Hoge />
+    </React.Fragment>
+  )
 }
 
 export default Blog02
