@@ -1,5 +1,12 @@
 import React from 'react';
 import Article02 from './Article02';
+// import {Foo, Bar} from './components/FooBar';
+import * as FooBar from './components/FooBar';
+import Hoge from './components/Hoge'
+
+// 別名import
+// import * as AnotherName from './Article'
+// import {Foo as MyFoo} from './FooBar
 
 class Blog02 extends React.Component {
   constructor(props) {
@@ -48,6 +55,11 @@ class Blog02 extends React.Component {
           toggle={() => this.togglePublished()}
           count={this.state.count}
         />
+        {/* <Foo /> */}
+        {/* <Bar /> */}
+        <FooBar.Foo />
+        <FooBar.Bar />
+        <Hoge />
       </React.Fragment>
     )
   }
